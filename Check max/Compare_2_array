@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(void)
+{
+    int a, b;
+    int max = -1;
+    printf("Total inputs in arr1=");
+    scanf("%d", &a);
+    printf("Total inputs in arr2=");
+    scanf("%d", &b);
+    int arr[a], arr1[b];
+    for (int i = 0; i < a; ++i)
+    {
+        scanf("%d", &arr[i]); // 2 3 4 5    // 0 3 0 0
+    }
+    for (int i = 0; i < b; ++i)
+    {
+        scanf("%d", &arr1[i]); // 1 4 2 5
+    }
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            if (arr[i] == arr1[j])
+            {
+                arr[i] = 0;
+                break;
+            }
+            else
+            {
+                continue;
+            }
+        }
+    }
+    for (int i = 0; i < a; ++i)
+    {
+        if (arr[i] == 0)
+        {
+            continue;
+        }
+        if (arr[i] >= max)
+        {
+            max = arr[i];
+        }
+    }
+    printf("Max= %d", max);
+}
